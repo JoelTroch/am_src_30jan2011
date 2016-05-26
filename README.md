@@ -30,6 +30,7 @@ Credits
 ----------
 
 * Valve Software : for obvious reasons.
+* Claudio "SysOp" Ficara : mod's creator and most of the code.
 * PARANOIA developers : bumpmapping code, camera, VGUI based HUD and more.
 * Moritz 'Ryokeen' Ulte : motion blur, old rope's code.
 * Laurie Cheers : for Spirit of Half Life.
