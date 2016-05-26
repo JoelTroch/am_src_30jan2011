@@ -1,0 +1,140 @@
+<html>
+  <body bgcolor="#ffffff" text="#000000" link="802020" alink="802020" vlink="802020">
+    <h1>:: usage</h1>
+    <h3>:: <a name="link">linking AVIKit</a></h3>
+    <p>
+      To use AVIKit in your project, you will first need to link the
+      following libraries:
+    </p>
+    <i>
+      vfw32.lib<br />
+      msacm32.lib<br />
+      avikit.lib<br />
+    </i>
+    <p>
+      The first two should have been included in your Windows distribution.
+      The third is in the /lib/ directory of the AVIKit distribution. You
+      will also need to include the header <i>avikit.h</i>, which is in the
+      /include/ directory of the AVIKit distribution, in any files which are
+      to be involved in the use of AVIKit.
+    </p><p>
+      Finally, if you are using VFW otherwise than through AVIKit, define
+      AVIKIT_NO_VFW in your project or AVIKit will attempt to seperately
+      initialise and release VFW.
+    </p>
+    <h3>:: <a name="video">playing videos</a></h3>
+    <p>
+      Displaying videos with AVIKit is trivial. Create an instance of the
+      AVIKit class using its <a href="avikit.htm#ctor">constructor</a>,
+      passing it the path of an AVI file and specifying <i>false</i> for
+      the <i>load_audio</i> parameter. Then, call AVIKit::<a
+      href="avikit.htm#f1">getError()</a> to determine whether the AVI file
+      loaded correctly or not. If so, you may begin playing the AVI
+      according to your program's real time clock. If not, delete the
+      instance of the AVIKit class and deal with the reported error as you
+      wish. Error definitions are included in the reference for
+      AVIKit::<a href="avikit.htm#f1">getError()</a>.
+    </p><p>
+      Before playing the video, you should call AVIKit::<a href="avikit.htm#f2">
+      getVideoInfo()</a> to determine the resolution of the video, and thus
+      the amount of memory you will need to reserve for calls to
+      AVIKit::<a href="avikit.htm#f4">getVideoFrame()</a> (<i>xres</i> *
+      <i>yres</i> * 3 bytes). AVIKit::<a href="avikit.htm#f2">getVideoInfo()</a>
+      will also report the length of the video, in seconds, so you will be
+      able to tell when the video should finish. Finally, it will return
+      <i>false</i> if the AVI could not load, so you could neglect the call to
+      AVIKit::<a href="avikit.htm#f1">getError()</a> entirely if the nature of
+      the error is not important.
+    </p><p>
+      Finally, to fetch frames, pass the time in seconds since the video
+      began playing to AVIKit::<a href="avikit.htm#f3">getVideoFrameNumber()</a>.
+      This will return the number of the video frame which corresponds
+      with that time. If this frame number is the same as the frame number
+      of the last frame read, it is too early as of yet to move on to the
+      next frame and you need not read the frame again. Otherwise, call
+      AVIKit::<a href="avikit.htm#f4">getVideoFrame()</a> to read the frame
+      as raw RGB data, and display it as you wish.
+    </p><p>
+      Once you are done with the video, simply
+      <a href="avikit.htm#dtor">delete</a> the instance of the AVIKit class.
+    </p>
+    <h3>:: <a name="audio">playing audio</a></h3>
+    <p>
+      Playing audio with AVIKit is slightly more complex. Load the AVI as
+      above, but specify <i>true</i> for the <i>load_audio</i> parameter of
+      the AVIKit <a href="avikit.htm#ctor">constructor</a>. After this,
+      assuming no errors arose, you can read the audio in one of two ways -
+      reading the decompressed PCM audio stream directly, or using the buffer
+      management class (AVIKitBuffer) to seperate audio channels and
+      perform some simple book-keeping for feeding circular buffers. The next
+      section on this page will deal with the latter; this section will deal
+      with the former.
+    </p><p>
+      First off, however, a word of warning. When playing audio, I strongly
+      advise keeping a seperate clock for the video and driving it by changes
+      in the play positions in your audio system. This way, video will be
+      synced to audio playback. If audio is synced to a seperate clock, it
+      will be audibly glitchy on occasion as it resynchronises.
+    </p><p>
+      So. Assuming no audio-related errors came up during loading the AVI
+      (AVIKit::<a href="avikit.htm#f1">getError()</a> can report more than one
+      error), you will need to call
+      AVIKit::<a href="avikit.htm#f5">getAudioInfo()</a> to find out
+      essential information about the audio stream - such as how to interpret
+      the raw bytes returned by
+      AVIKit::<a href="avikit.htm#f6">getAudioChunk()</a>, and how many bytes
+      to expect - since the <i>offset</i> and <i>length</i> parameters taken
+      by AVIKit::<a href="avikit.htm#f6">getAudioChunk()</a> are in samples,
+      not bytes.
+    </p><p>
+      Finally, when using AVIKit::<a href="avikit.htm#f6">getAudioChunk()</a>,
+      be sure to read bytes in order. If you call it with <i>offset</i>
+      less than <i>offset</i> + <i>length</i> (by the previous values), AVIKit
+      may have to seek from the beginning of the audio stream, which will
+      take time.
+    </p>
+    <h3>:: <a name="buffer">buffer management</a></h3>
+    <p>
+      The AVIKitBuffer class will perform some simple book-keeping, such
+      as directing the synchronisation of the audio stream and the clock by
+      which the video stream is driven. It can also split a stereo audio
+      stream into two mono audio streams, for the purpose of - eg - driving
+      two virtual 3D stereo speakers.
+    </p><p>
+      To use AVIKitBuffer's buffer management, first create an instance of
+      the AVIKit class with audio. Then, create an instance of the
+      AVIKitBuffer class using its <a href="buffer.htm#ctor">constructor</a>,
+      passing it a pointer to that instance of the AVIKit class and the
+      length of your intended circular buffer in samples. You can read
+      basic information about the audio stream using
+      AVIKitBuffer::<a href="buffer.htm#f1">getAudioInfo()</a>, which is
+      identical to AVIKit::<a href="avikit.htm#f5">getAudioInfo()</a>.
+      Then, whenever you get a chance to update your playing sound buffers:
+    </p><p>
+      Call AVIKitBuffer::<a href="buffer.htm#f2">makeUpdate()</a>, passing
+      the current play position in your circular buffer, or buffers, in
+      samples and the current time, in seconds. This function will recommend
+      a specific buffer update, starting at a certain position in samples from
+      the beginning of the buffer (<i>s_update_pos</i>) and continuing for a
+      certain number of samples (<i>s_update_length</i>). Caution: this
+      recommended update may overrun the buffer and need to be looped back
+      to the start. If so, you will need to perform two calls to a
+      AVIKitBuffer::<a href="buffer.htm#f3">getUpdate()</a> function for this
+      call to AVIKitBuffer::<a href="buffer.htm#f2">makeUpdate()</a>, not one.
+    </p><p>
+      After locking the relevant section, or sections, of your buffers as
+      necessary, use AVIKitBuffer::<a href="buffer.htm#f3">getUpdate(3)</a>
+      or AVIKitBuffer::<a href="buffer.htm#f4">getUpdate(4)</a> to read the
+      audio data directly into your buffers. The distinction is that
+      AVIKitBuffer::<a href="buffer.htm#f3">getUpdate(3)</a> will read raw
+      audio data, as might be appropriate for reading stereo data into a
+      stereo buffer or mono 8-bit data into a mono 8-bit buffer. The other,
+      AVIKitBuffer::<a href="buffer.htm#f4">getUpdate(4)</a>, will read
+      stereo or mono data into two distinct mono buffers.
+    </p><p>
+      That's it! For an example on this aspect of using the library,
+      look at the <i>BufferSync</i> and <i>BuffersSync</i> functions of the
+      <b>akdemo</b> and <b>akdemo3d</b> samples, respectively.
+    </p>
+  </body>
+</html>

@@ -1,0 +1,261 @@
+condebug enabled
+Developer config loaded! .0.9 >>" 
+- Loading Player Movement ... - 
+- Loading Zoom System ... - 
+- Done - 
+----------------------- 
+S2p Physics Loaded! 
+----------------------- 
+No detail texture mapping file: maps/am_victorgetts_detail.txt
+
+GAME SKILL LEVEL:1
+
+
+** GetSkillCVar Got a zero for sk_plr_egon_narrow1 **
+
+
+
+** GetSkillCVar Got a zero for sk_plr_egon_wide1 **
+
+WARNING:  Sentencia COMBINE_MONSTER0 es mas grande que 15 letras
+WARNING:  Sentencia COMBINE_MONSTER1 es mas grande que 15 letras
+WARNING:  Sentencia COMBINE_MONSTER2 es mas grande que 15 letras
+NULL Ent in UTIL_PrecacheOtherWeapon
+NULL Ent in UTIL_PrecacheOtherWeapon
+NULL Ent in UTIL_PrecacheOther
+NULL Ent in UTIL_PrecacheOtherWeapon
+NULL Ent in UTIL_PrecacheOther
+NULL Ent in UTIL_PrecacheOtherWeapon
+NULL Ent in UTIL_PrecacheOtherWeapon
+
+-----------------------------------------------------------
+Efectos de am_victorgetts encontrado con exito!
+Iniciando FX...
+-----------------------------------------------------------
+Buscando Reporte de Mision para mapa am_victorgetts...
+
+-----------------------------------------------------------
+Informe de Mision de am_victorgetts encontrado con exito!
+-----------------------------------------------------------
+Musica seteada segun mapa como default.mp3 
+
+-----------------------------------------------------------
+Iniciando musica de mapa: default.mp3 
+-----------------------------------------------------------
+
+*Graph Loaded!
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+ERROR:  env_model: unknown sequence ""
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+WARNING: CGrass :: Spawn, Can't find targetname.
+CGrass Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+
+BUILD 2603 SERVER (0 CRC)
+Server # 1
+Caching frequently used particles, this may take a few moments
+Finished caching frequently used particles, game loading will now continue
+Warning:  Unable to open sound/items/irgunclip.wav for transfer
+Warning:  Unable to open sound/coins/pickup1.wav for transfer
+Warning:  Unable to open sound/weapons/flash/flash_fire-1.wav for transfer
+Warning:  Unable to open sound/weapons/USAS/scock1.wav for transfer
+Warning:  Unable to open sound/weapons/finalweapon/heal_fire-1.wav for transfer
+Warning:  Unable to open sound/Soul/ag_buzz1.wav for transfer
+Warning:  Unable to open sound/Soul/ag_buzz2.wav for transfer
+Warning:  Unable to open sound/Soul/ag_buzz3.wav for transfer
+Warning:  Unable to open sound/Soul/ag_Soulhit1.wav for transfer
+Warning:  Unable to open sound/Soul/ag_Soulhit2.wav for transfer
+Warning:  Unable to open sound/Soul/ag_Soulhit3.wav for transfer
+Warning:  Unable to open sound/ambience/truenos.wav for transfer
+processing sound/items/irgunclip.wav
+processing sound/coins/pickup1.wav
+processing sound/weapons/flash/flash_fire-1.wav
+processing sound/weapons/USAS/scock1.wav
+processing sound/weapons/finalweapon/heal_fire-1.wav
+processing sound/Soul/ag_buzz1.wav
+processing sound/Soul/ag_buzz2.wav
+processing sound/Soul/ag_buzz3.wav
+processing sound/Soul/ag_Soulhit1.wav
+processing sound/Soul/ag_Soulhit2.wav
+processing sound/Soul/ag_Soulhit3.wav
+processing sound/ambience/truenos.wav
+Resetting Particle Engine
+con_color is now 255 255 255
+
+*Musica encontrada con exito! 
+Reproduciendo musica del mapa...
+**Graph Pointers Set!
+playaudio 
+Aucun fichier son am/sound/fmod/am_victorgetts.mp3
+Couldn't open file overviews/am_victorgetts.txt. Using default values for overiew mode.
+Couldn't open file overviews/am_victorgetts.txt. Using default values for overiew mode.
+condebug enabled
+Firing: (message-start1)
+Found: env_message, firing (message-start1)
+monster_bullchicken Failed to move (0)!
+Schedule Failed at 3!
+condebug enabled
+----------------------- 
+S2p Physics Loaded! 
+----------------------- 
+
+GAME SKILL LEVEL:2
+
+
+** GetSkillCVar Got a zero for sk_plr_egon_narrow2 **
+
+
+
+** GetSkillCVar Got a zero for sk_plr_egon_wide2 **
+
+WARNING:  Sentencia FG_GLASS_BREKABLE0 es mas grande que 15 letras
+WARNING:  Sentencia FG_GLASS_BREKABLE1 es mas grande que 15 letras
+WARNING:  Sentencia FG_GLASS_BREKABLE2 es mas grande que 15 letras
+NULL Ent in UTIL_PrecacheOtherWeapon
+NULL Ent in UTIL_PrecacheOther
+NULL Ent in UTIL_PrecacheOtherWeapon
+NULL Ent in UTIL_PrecacheOther
+
+-----------------------------------------------------------
+ADVERTENCIA: Imposible encontrar el archivo de Efectos!
+Imposible encontrar maps/am_lastday02.pcs !
+-----------------------------------------------------------
+Buscando Reporte de Mision para mapa am_lastday02...
+-----------------------------------------------------------
+ADVERTENCIA: Informe de Mision de am_lastday02 no encontrado!
+*Imposible encontrar scripts/brf/am_lastday02.brf !
+-----------------------------------------------------------
+Musica seteada segun mapa como default.mp3 
+
+-----------------------------------------------------------
+Iniciando musica de mapa: default.mp3 
+-----------------------------------------------------------
+ERROR:  env_model: unknown sequence ""
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+HUMAN_WEAPON_MP5
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+CParticleEmitter Spawn in <ON> Mode
+Nextthink in 0.5 Seconds
+HUMAN_WEAPON_SHOTGUN
+HUMAN_WEAPON_ASSAULT
+ERROR:  env_model: unknown sequence ""
+HUMAN_WEAPON_ASSAULT
+HUMAN_WEAPON_MP5
+HUMAN_WEAPON_M249
+SV_StartSound: items/weapondrop2.wav not precached (0)
+
+BUILD 2603 SERVER (0 CRC)
+Server # 1
+m_menuSizeX 128
+m_menuSizeY 34
+m_menuScale 0.500000
+m_menuMinAlpha 0.300000
+m_menuAddAlpha 0.700000
+m_menuSpeed 3.000000
+m_menuRenderMode 5
+Caching frequently used particles, this may take a few moments
+Finished caching frequently used particles, game loading will now continue
+Generate SrceenTextureWarning:  Unable to open sound/weapons/flash/flash_fire-1.wav for transfer
+Warning:  Unable to open sound/weapons/USAS/scock1.wav for transfer
+Warning:  Unable to open sound/weapons/finalweapon/heal_fire-1.wav for transfer
+Warning:  Unable to open sound/Soul/ag_buzz1.wav for transfer
+Warning:  Unable to open sound/Soul/ag_buzz2.wav for transfer
+Warning:  Unable to open sound/Soul/ag_buzz3.wav for transfer
+Warning:  Unable to open sound/Soul/ag_Soulhit1.wav for transfer
+Warning:  Unable to open sound/Soul/ag_Soulhit2.wav for transfer
+Warning:  Unable to open sound/Soul/ag_Soulhit3.wav for transfer
+Warning:  Unable to open sound/Ambience/fire_alarm1.wav for transfer
+Warning:  Unable to open sound/Ambience/rain_loop_01.wav for transfer
+Warning:  Unable to open sound/gook/step1.wav for transfer
+Warning:  Unable to open sound/gook/step2.wav for transfer
+Warning:  Unable to open sound/gook/step3.wav for transfer
+Warning:  Unable to open sound/gook/step4.wav for transfer
+Warning:  Unable to open sound/DOORS/hitdoor01.wav for transfer
+Warning:  Unable to open sound/Ambience/am_last_day_sequence.wav for transfer
+processing sound/weapons/flash/flash_fire-1.wav
+processing sound/weapons/USAS/scock1.wav
+processing sound/weapons/finalweapon/heal_fire-1.wav
+processing sound/Soul/ag_buzz1.wav
+processing sound/Soul/ag_buzz2.wav
+processing sound/Soul/ag_buzz3.wav
+processing sound/Soul/ag_Soulhit1.wav
+processing sound/Soul/ag_Soulhit2.wav
+processing sound/Soul/ag_Soulhit3.wav
+processing sound/Ambience/fire_alarm1.wav
+processing sound/Ambience/rain_loop_01.wav
+processing sound/gook/step1.wav
+processing sound/gook/step2.wav
+processing sound/gook/step3.wav
+processing sound/gook/step4.wav
+processing sound/DOORS/hitdoor01.wav
+processing sound/Ambience/am_last_day_sequence.wav
+Resetting Particle Engine
+playaudio È
+Aucun fichier son am/sound/fmod/am_lastday02.mp3
+Couldn't open file overviews/am_lastday02.txt. Using default values for overiew mode.
+Couldn't open file overviews/am_lastday02.txt. Using default values for overiew mode.
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+CParticleEmitter :: TurnOn, Current Time: 1.500000
+SZ_GetSpace: overflow on netchan->message
+SZ_GetSpace: overflow on netchan->message

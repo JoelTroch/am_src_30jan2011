@@ -1,0 +1,125 @@
+<html>
+  <body bgcolor="#ffffff" text="#000000" link="802020" alink="802020" vlink="802020">
+    <h1>:: AVIKitBuffer class</h1>
+    <h3>:: <a name="ctor">constructor(AVIKit *avi, long s_buffer_size)</a></h3>
+    <p>
+      Creates a buffer manager for the specified AVI.
+    </p>
+    Parameters:<br />
+    <table border="1" cellpadding="5" cellspacing="1">
+    <tr>
+      <td>AVIKit *<i>avi</i></td>
+      <td>Pointer to a valid instance of the AVIKit class, which has
+      successfully loaded an .AVI.</td>
+    </tr>
+    <tr>
+      <td>long <i>s_buffer_size</i></td>
+      <td>The size of the sound buffer or buffers you want to use, in
+      samples. The buffer manager will automatically operate in terms of
+      positions within a circular buffer of this size.</td>
+    </tr>
+    </table>
+    <br /><hr />
+    <h3>:: <a name="dtor">destructor()</a></h3>
+    <p>
+      Deletes the buffer manager and frees all memory.
+    </p>
+    <hr />
+    <h3>:: bool <a name="f1">getAudioInfo(long *frequency, long *bytes_per_sample, long *channels, bool *is_16_bit)</a></h3>
+    <p>
+      See AVIKit::<a href="avikit.htm#f5">getAudioInfo()</a>.
+    </p>
+    <hr />
+    <h3>:: <a name="f2">makeUpdate(long playpos, float time, long *s_update_pos, long *s_update_length)</a></h3>
+    <p>
+      Calculates a recommended buffer update to make.
+    </p>
+    Parameters:<br />
+    <table border="1" cellpadding="5" cellspacing="1">
+    <tr>
+      <td>long <i>playpos</i></td>
+      <td>Current position, in samples, of the play pointer from the
+      beginning of the buffer. The buffer manager uses this to determine
+      how much of the buffer has already been played and can be replaced.</td>
+    </tr>
+    <tr>
+      <td>float <i>time</i></td>
+      <td>The current time in seconds since the start of the video. The buffer
+      manager will automatically resynchronise the audio playback to this
+      clock if it starts to get out of synch.</td>
+    </tr>
+    <tr>
+      <td>long *<i>s_update_pos</i></td>
+      <td>Pointer to a long to set to the position, in samples, from the
+      beginning of the buffer to make an update from.</td>
+    </tr>
+    <tr>
+      <td>long *<i>s_update_length</i></td>
+      <td>Pointer to a long to set to the length, in samples, of the
+      recommended buffer update.</td>
+    </tr>
+    </table>
+    <br /><hr />
+    <h3>:: <a name="f3">getUpdate(char *rawbuffer, long s_update_pos, long s_update_length)</a></h3>
+    <p>
+      Reads raw audio data from the stream to <i>rawbuffer</i>.
+    </p>
+    Parameters:<br />
+    <table border="1" cellpadding="5" cellspacing="1">
+    <tr>
+      <td>char *<i>rawbuffer</i></td>
+      <td>A pointer to the point in memory to write the audio data. This
+      should be the point <i>s_update_pos</i> samples from the beginning
+      of the buffer, not a pointer to the start of the buffer.</td>
+    </tr>
+    <tr>
+      <td>long <i>s_update_pos</i></td>
+      <td>The position, in samples, from the beginning of the buffer which
+      the buffer manager is expected to write data to. It will read data
+      accordingly.</td>
+    </tr>
+    <tr>
+      <td>long <i>s_update_length</i></td>
+      <td>The number of samples to be read from the audio stream to the
+      position in memory specified by <i>rawbuffer</i>.</td>
+    </tr>
+    </table>
+    <br /><hr />
+    <h3>:: <a name="f4">getUpdate(char *leftbuffer, char *rightbuffer, long s_update_pos, long s_update_length)</a></h3>
+    <p>
+      Reads raw audio data. If the raw data is stereo, it seperates the
+      two channels and dumps the two chunks of mono data to <i>leftbuffer</i>
+      and <i>rightbuffer</i> as appropriate. If the raw data is mono, it
+      copies it to both buffers.
+    </p>
+    Parameters:<br />
+    <table border="1" cellpadding="5" cellspacing="1">
+    <tr>
+      <td>char *<i>leftbuffer</i></td>
+      <td>A pointer to the point in memory to write the left channel of
+      the audio data. This should be the point <i>s_update_pos</i> samples
+      from the beginning of the left buffer, not a pointer to the start of
+      the buffer.</td>
+    </tr>
+    <tr>
+      <td>char *<i>rightbuffer</i></td>
+      <td>A pointer to the point in memory to write the right channel of
+      the audio data. This should be the point <i>s_update_pos</i> samples
+      from the beginning of the right buffer, not a pointer to the start of
+      the buffer.</td>
+    </tr>
+    <tr>
+      <td>long <i>s_update_pos</i></td>
+      <td>The position, in samples, from the beginning of the buffers which
+      the buffer manager is expected to write data to. It will read data
+      accordingly.</td>
+    </tr>
+    <tr>
+      <td>long <i>s_update_length</i></td>
+      <td>The number of samples to be read from the audio stream to the
+      positions in memory specified by <i>leftbuffer</i> and
+      <i>rightbuffer</i>.</td>
+    </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,195 @@
+<html>
+  <body bgcolor="#ffffff" text="#000000" link="802020" alink="802020" vlink="802020">
+    <h1>:: AVIKit class</h1>
+    <h3>:: <a name="ctor">constructor(const char *filename, bool load_audio)</a></h3>
+    <p>
+      Loads a named .AVI file and prepares it for playing.
+    </p>
+    Parameters:<br />
+    <table border="1" cellpadding="5" cellspacing="1">
+    <tr>
+      <td>const char *<i>filename</i></td>
+      <td>Path of a valid .AVI file to load.</td>
+    </tr>
+    <tr>
+      <td>bool <i>load_audio</i></td>
+      <td>If true, AVIKit will attempt to load and prepare the AVI's audio
+      stream for decompression. If false, AVIKit will ignore any audio stream
+      present in the AVI.</td>
+    </tr>
+    </table>
+    <br /><hr />
+    <h3>:: <a name="dtor">destructor()</a></h3>
+    <p>
+      Unloads the .AVI and frees all memory.
+    </p>
+    <hr />
+    <h3>:: int <a name="f1">getError(char **emsg)</a></h3>
+    <p>
+      Returns the most recent error generated. Will return older errors on
+      subsequent calls if such exist. Will return <b>AVIKIT_NOERROR</b> if
+      no further errors exist.
+    </p>
+    Parameters:<br />
+    <table border="1" cellpadding="5" cellspacing="1">
+    <tr>
+      <td>char **<i>emsg</i></td>
+      <td>Pointer to a pointer. If <i>emsg</i> is not NULL, <i>(*emsg)</i>
+      will be set to a pointer to a string which is the equivalent string
+      representation of the returned error code.</td>
+    </tr>
+    </table>
+    <br />
+    Return values:<br />
+    <table border="1" cellpadding="5" cellspacing="1">
+    <tr>
+      <td><b>AVIKIT_NOERROR</b></td>
+      <td>There are no errors in the list.</td>
+    </tr>
+    <tr>
+      <td><b>AVIKIT_ERROR_BADFILE</b></td>
+      <td>No handler found or file does not exist.</td>
+    </tr>
+    <tr>
+      <td><b>AVIKIT_ERROR_BADFORMAT</b></td>
+      <td>Corrupt .AVI or unknown format.</td>
+    </tr>
+    <tr>
+      <td><b>AVIKIT_ERROR_MEMERROR</b></td>
+      <td>Not enough memory available on system to open .AVI.</td>
+    </tr>
+    <tr>
+      <td><b>AVIKIT_ERROR_DISKERROR</b></td>
+      <td>Disk error encountered attempting to read .AVI.</td>
+    </tr>
+    <tr>
+      <td><b>AVIKIT_ERROR_NOVIDEO</b></td>
+      <td>No video stream found in specified .AVI.</td>
+    </tr>
+    <tr>
+      <td><b>AVIKIT_ERROR_VIDEOERROR</b></td>
+      <td>VFW failed to read the .AVI's video stream.</td>
+    </tr>
+    <tr>
+      <td><b>AVIKIT_ERROR_ACM</b></td>
+      <td>ACM failed to open conversion stream: cannot decode audio.</td>
+    </tr>
+    <tr>
+      <td><b>AVIKIT_ERROR_ACMCODEC</b></td>
+      <td>This codec is not yet supported by AVIKit.</td>
+    </tr>
+    </table>
+    <br /><hr />
+    <h3>:: bool <a name="f2">getVideoInfo(long *xres, long *yres, float duration)</a></h3>
+    <p>
+      Gives access to basic information about the video stream.
+    </p>
+    Parameters:<br />
+    <table border="1" cellpadding="5" cellspacing="1">
+    <tr>
+      <td>long *<i>xres</i></td>
+      <td>Pointer to a long to set to the X resolution of the video, or
+      NULL.</td>
+    </tr>
+    <tr>
+      <td>long *<i>yres</i></td>
+      <td>Pointer to a long to set to the Y resolution of the video, or
+      NULL.</td>
+    </tr>
+    <tr>
+      <td>float *<i>duration</i></td>
+      <td>Pointer to a float to set to the duration of the video, or
+      NULL.</td>
+    </tr>
+    </table>
+    <br />
+    Return values:<br />
+    <table border="1" cellpadding="5" cellspacing="1">
+    <tr>
+      <td><i>true</i></td>
+      <td>.AVI is ready to be played.</td>
+    </tr>
+    <tr>
+      <td><i>false</i></td>
+      <td>.AVI did not load correctly and cannot be played. This will happen
+      only if errors have been generated.</td>
+    </tr>
+    </table>
+    <br /><hr />
+    <h3>:: long <a name="f3">getVideoFrameNumber(float time)</a></h3>
+    <p>
+      Returns the frame number corresponding to the stated time from the
+      beginning of the video.
+    </p>
+    <hr />
+    <h3>:: <a name="f4">getVideoFrame(char *framedata, long frame)</a></h3>
+    <p>
+      Retrieves a single numbered RGB frame from the video stream.
+    </p>
+    Parameters:<br />
+    <table border="1" cellpadding="5" cellspacing="1">
+    <tr>
+      <td>char *<i>framedata</i></td>
+      <td>Pointer to write the frame data to. This function will write
+      xres * yres * 3 bytes to this location in memory.</td>
+    </tr>
+    <tr>
+      <td>long <i>frame</i></td>
+      <td>Number of the frame to retrieve from the video stream.</td>
+    </tr>
+    </table>
+    <br /><hr />
+    <h3>:: bool <a name="f5">getAudioInfo(long *frequency, long *bytes_per_sample, long *channels, bool *is_16_bit)</a></h3>
+    <p>
+      Gives access to basic information about the audio stream.
+    </p>
+    Parameters:<br />
+    <table border="1" cellpadding="5" cellspacing="1">
+    <tr>
+      <td>long *<i>frequency</i></td>
+      <td>Pointer to a long to set to the frequency of the audio stream, or
+      NULL.</td>
+    </tr>
+    <tr>
+      <td>long *<i>bytes_per_sample</i></td>
+      <td>Pointer to a long to set to the number of bytes per sample of the
+      audio stream, or NULL.</td>
+    </tr>
+    <tr>
+      <td>long *<i>channels</i></td>
+      <td>Pointer to a long to set to the number of channels in the audio
+      stream, or NULL.</td>
+    </tr>
+    <tr>
+      <td>bool *<i>is_16_bit</i></td>
+      <td>Pointer to a boolean to set to true if the audio stream is 16 bit
+      or false if the audio stream is 8 bit, or NULL.</td>
+    </tr>
+    </table>
+    <br />
+    Return values:<br />
+    <table border="1" cellpadding="5" cellspacing="1">
+    <tr>
+      <td><i>true</i></td>
+      <td>Audio stream loaded correctly and is ready to be played.</td>
+    </tr>
+    <tr>
+      <td><i>false</i></td>
+      <td>Audio stream did not load correctly and cannot be played. This will
+      happen only if errors have been generated.</td>
+    </tr>
+    </table>
+    <br /><hr />
+    <h3>:: <a name="f6">getAudioChunk(char *audiodata, long offset, long length)</a></h3>
+    <p>
+      Reads <i>length</i> samples from the audio stream, starting <i>offset</i>
+      samples from the beginning of the audio stream. Writes these samples to
+      memory starting at <i>audiodata</i>.
+    </p><p>
+      If the audio stream is compressed, using this function to read the same
+      sample or samples twice - or to try and seek backwards - may cause
+      AVIKit to seek to that position in the audio stream from the beginning,
+      which will take time.
+    </p>
+  </body>
+</html>
